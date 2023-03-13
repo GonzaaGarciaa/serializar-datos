@@ -1,0 +1,23 @@
+# Sirve para serializar y deserializar datos
+import pickle
+
+class Auto:
+    def __init__(self, marca, color):
+        self.marca = marca
+        self.color = color
+    
+    def get_marca(self):
+        return self.marca
+
+#corsa = Auto("Chevrolet","Blanco")
+
+#f = open("datos.bin","wb") # wb: indicamos que lo vamos a guarda en datos binarios
+#pickle.dump(corsa, f)   # Aca guardamos los datos en el fichero (lo que voy a serializar seguido de donde lo guardo)
+#f.close()
+
+f = open("datos.bin",'rb') # rb: Leemos el archivo en binario
+corsa = pickle.load(f)  # Cargamos el contenido
+f.close()
+
+print(type(corsa))
+print(corsa.get_marca(), 'color:', corsa.color)
